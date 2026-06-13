@@ -1,7 +1,11 @@
 ---
-title: Empezar
-description: Puesta en marcha del pipeline en local.
+title: Ver demo
+description: Demo del pipeline NaN Video.
 ---
+
+import VideoPlayer from '../../components/VideoPlayer.astro';
+
+<VideoPlayer src="/caso-nan-community.mp4" caption="Video demo producido por el pipeline NaN" width="portrait" />
 
 ## Requisitos previos
 

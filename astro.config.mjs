@@ -27,7 +27,7 @@ export default defineConfig({
         },
       ],
       sidebar: [
-        { label: 'Empezar', slug: 'empezar' },
+        { label: 'Ver demo', slug: 'empezar' },
         { label: 'El pipeline', slug: 'pipeline' },
         { label: 'Caso demo: la comunidad NaN', slug: 'caso-nan-community' },
         { label: 'Imágenes con IA externa', slug: 'imagenes-ia' },

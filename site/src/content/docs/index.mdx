@@ -5,9 +5,9 @@ template: splash
 hero:
   tagline: De un tema a un video corto narrado (9:16), de principio a fin, usando únicamente los modelos del cluster NaN. Guion, imágenes, voz, subtítulos y render — sin servicios externos.
   actions:
-    - text: Empezar
-      link: /nan-video-pipeline/empezar/
-      icon: right-arrow
+    - text: Ver demo
+      link: /#video
+      icon: play
     - text: Ver en GitHub
       link: https://github.com/lamjesus/nan-video-pipeline
       variant: minimal
@@ -15,6 +15,9 @@ hero:
 ---
 
 import { Card, CardGrid } from '@astrojs/starlight/components';
+import VideoPlayer from '../../components/VideoPlayer.astro';
+
+<VideoPlayer src="/caso-nan-community.mp4" caption="Video demo producido por el pipeline" width="portrait" />
 
 ## El pipeline en una línea
 
