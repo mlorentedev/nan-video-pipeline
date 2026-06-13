@@ -13,9 +13,9 @@ RUN yarn install --frozen-lockfile
 COPY . .
 # En una App de NaN la doc se sirve en la raíz del subdominio, no en /nan-video-pipeline.
 ENV SITE_BASE=/
-ENV SITE_URL=https://nan-video-docs.apps.nan.builders
+ENV SITE_URL=https://nan-video-demo.apps.nan.builders
 RUN yarn build
 
 FROM nginx:alpine
 COPY --from=build /site/dist/ /usr/share/nginx/html/
-EXPOSE 80
+EXPOSE 8080
