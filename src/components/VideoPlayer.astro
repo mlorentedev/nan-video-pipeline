@@ -19,15 +19,25 @@ const {
 
 const maxWidth = width === 'full' ? '100%' : width === 'landscape' ? '800px' : '420px';
 const isPortrait = width === 'portrait';
+
+// Resolve root-absolute asset paths against the configured base so the same
+// markup works at the domain root (NaN Cloud, base "/") and under a sub-path
+// (GitHub Pages, base "/<repo>/").
+const withBase = (path?: string) =>
+  path && path.startsWith('/')
+    ? `${import.meta.env.BASE_URL.replace(/\/$/, '')}${path}`
+    : path;
+const videoSrc = withBase(src);
+const videoPoster = withBase(poster);
 ---
 
 <div class="video-player" style="max-width: {maxWidth}; margin: 0 auto 1.5rem;">
   <video
     controls
     class:list={[{ portrait: isPortrait }]}
-    {...poster ? { poster } : {}}
+    {...videoPoster ? { poster: videoPoster } : {}}
   >
-    <source src={src} type="video/mp4" />
+    <source src={videoSrc} type="video/mp4" />
     Tu navegador no soporta video HTML5.
   </video>
   {caption && <p class="video-caption">{caption}</p>}
