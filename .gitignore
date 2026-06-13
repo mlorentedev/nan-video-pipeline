@@ -5,8 +5,8 @@ node_modules/
 dist/
 .astro/
 
-# Duplicate / legacy site directory
-site/
+# Duplicate / legacy site directory (kept for NaN Cloud build context)
+# site/
 
 # Logs
 npm-debug.log*

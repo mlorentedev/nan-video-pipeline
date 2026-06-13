@@ -1,21 +1,19 @@
-# Sirve SOLO la documentación (Astro Starlight) como estático con nginx.
-# Pensado para una App de NaN (https://nan.builders/docs/apps): conecta este
-# repo, build context = site/, puerto 80. La URL pública la da NaN
-# (*.apps.nan.builders), sin depender de GitHub Pages / Actions.
+# Imagen de documentación (Astro Starlight) como estático con nginx.
+# Pensado para NaN Cloud Apps (https://nan.builders/docs/apps) o GitHub Pages.
 #
-# Build local de prueba:
+# Build local:
 #   docker build -t nan-video-demo site/
 #   docker run -p 8080:80 nan-video-demo   # → http://localhost:8080
 FROM node:22-alpine AS build
-WORKDIR /site
+WORKDIR /app
 COPY package.json yarn.lock ./
 RUN yarn install --frozen-lockfile
 COPY . .
-# En una App de NaN la doc se sirve en la raíz del subdominio, no en /nan-video-pipeline.
+# En NaN Cloud la doc se sirve en la raíz del subdominio.
 ENV SITE_BASE=/
-ENV SITE_URL=https://nan-video-demo.apps.nan.builders
+ENV SITE_URL=https://hackathon-mlorentedev-nan-video-demo.apps.nan.builders
 RUN yarn build
 
 FROM nginx:alpine
-COPY --from=build /site/dist/ /usr/share/nginx/html/
+COPY --from=build /app/dist/ /usr/share/nginx/html/
 EXPOSE 80

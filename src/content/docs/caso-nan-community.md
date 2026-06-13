@@ -3,6 +3,10 @@ title: 'Caso demo: la comunidad NaN'
 description: El video que el propio pipeline produce sobre la comunidad NaN y sobre sí mismo.
 ---
 
+import VideoPlayer from '../../components/VideoPlayer.astro';
+
+<VideoPlayer src="/caso-nan-community.mp4" caption="Video producido por el pipeline" width="portrait" />
+
 El caso vivo del repo es `caso-nan-community`: un video demo que explica
 **primero qué es la comunidad NaN** (GPUs de inferencia, API OpenAI-compatible,
 modelos, NaN Cloud) y **después en qué consiste este proyecto** — con el giro
