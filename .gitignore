@@ -20,6 +20,11 @@ yarn-error.log*
 *.swo
 *.swn
 
+# AI agent local config (never commit)
+.claude/
+CLAUDE.md
+AGENTS.md
+
 # OS
 .DS_Store
 Thumbs.db
